@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Minecraft Clicker</title>
+  <style>
+    body {
+      background: #5c94fc;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin-top: 40px;
+    }
+
+    #block {
+      font-size: 100px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    #score {
+      font-size: 40px;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Minecraft Clicker</h1>
+
+  <p id="score">Blocks mined: 0</p>
+
+  <div id="block">🟫</div>
+
+  <button id="resetButton">Reset</button>
+
+  <script>
+    let blocksMined = 0;
+
+    const block = document.getElementById("block");
+    const score = document.getElementById("score");
+    const resetButton = document.getElementById("resetButton");
+
+    block.addEventListener("click", function () {
+      blocksMined++;
+      score.textContent = "Blocks mined: " + blocksMined;
+
+      if (blocksMined >= 10) {
+        block.textContent = "🪨";
+      }
+
+      if (blocksMined >= 25) {
+        block.textContent = "💎";
+      }
+    });
+
+    resetButton.addEventListener("click", function () {
+      blocksMined = 0;
+      score.textContent = "Blocks mined: 0";
+      block.textContent = "🟫";
+    });
+  </script>
+
+</body>
+</html>
